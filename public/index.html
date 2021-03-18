@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terminal Roguelike</title>
+<link rel="stylesheet" href="assets/css/terminal.css">
+</head>
+<body>
+<div class="crt" id="crt">
+
+    <h1 class="title glow">TERMINAL ROGUELIKE</h1>
+    <p class="subtitle">// подключение к подземному серверу...</p>
+
+    <section id="start-screen">
+        <div class="name-row">
+            <label for="player-name">Имя оператора:</label>
+            <input type="text" id="player-name" maxlength="20" placeholder="anon">
+            <button id="start-button">Начать забег</button>
+        </div>
+        <div id="start-error" class="hidden" style="color:var(--term-red); text-align:center;"></div>
+
+        <div>
+            <h2 class="glow">Таблица лучших забегов</h2>
+            <table class="leaderboard" id="leaderboard-table">
+                <thead>
+                    <tr><th>#</th><th>Игрок</th><th>Этаж</th><th>Очки</th><th>Статус</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="game-screen" class="hidden">
+        <div class="statbar" id="statbar"></div>
+
+        <div id="log"></div>
+
+        <div id="options"></div>
+
+        <div class="input-row">
+            <span class="prompt">&gt;</span>
+            <input type="text" id="command-input" autocomplete="off" placeholder="введи команду (go north, attack, look...)">
+            <span class="cursor">&nbsp;</span>
+        </div>
+        <div id="error-line"></div>
+
+        <button id="restart-button" class="hidden">Новый забег</button>
+    </section>
+
+</div>
+
+<script src="assets/js/terminal.js"></script>
+</body>
+</html>
