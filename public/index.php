@@ -23,6 +23,14 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $root = dirname(__DIR__);
 
+if (PHP_SAPI === 'cli-server') {
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $file = $root . '/public' . $path;
+    if ($path !== '/' && is_file($file)) {
+        return false;
+    }
+}
+
 $dotenv = Dotenv::createImmutable($root);
 $dotenv->safeLoad();
 
